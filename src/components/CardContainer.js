@@ -77,13 +77,13 @@ const CardContainer =  () => {
     } else if (playMode === 'won') {
       return (
         <div>
-          <h2>Winner!!</h2>
+          <h2 className='notification'>You have won.</h2>
         </div>
       )
     } else if (playMode === 'lost'){
       return (
         <div>
-          <h2>Loser!!</h2>
+          <h2 className='notification'>You have lost.</h2>
         </div>
       )
     }

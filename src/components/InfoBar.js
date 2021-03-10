@@ -10,7 +10,7 @@ const InfoBar = () => {
       onMouseLeave={() => setHover(false)}
       className='infobar'
     >
-      {hover ? <p>try to click each image without clicking on one you've already selected</p> : <FaInfoCircle />}
+      {hover ? <p>to win: click each image without clicking on one you've already selected</p> : <FaInfoCircle />}
     </div>
   )
 }
