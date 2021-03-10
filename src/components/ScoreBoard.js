@@ -8,7 +8,7 @@ const ScoreBoard = ({score}) => {
   }, [score])
 
   return (
-    <div>
+    <div className='scoreboard'>
       <h2>Current Score: {score}</h2>
       <h2>Highest Score:{highestScore}</h2>
     </div>

@@ -11,13 +11,11 @@ const Card = ({ handleScore, id}) => {
     <div onClick={handleClick}>
       <img 
         src={cardImages[id]}
+        className='card'
         style={{
-          width: '200px',
-          boxShadow: '7px 7px 10px 5px rgba(255, 255, 255, 0.55), -7px -7px 10px 5px rgba(255, 255, 255, 0.75)',
-          borderRadius: '.5em',
-          margin: '1em'
+          
         }}
-        alt='buttholes'
+        alt={id}
        />
     </div>
   )
