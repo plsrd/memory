@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {  useState, useEffect } from 'react'
 import Card from './Card'
 
 
@@ -78,6 +78,12 @@ const CardContainer =  () => {
       )
     }
   }
+
+  useEffect(() => {
+    if (playMode === 'won' || playMode === 'lost') {
+      setTimeout(() => setPlayMode('play'), 1500)
+    }
+  }, [playMode])
 
   return (
     <div>
