@@ -1,5 +1,6 @@
 import React, {  useState, useEffect } from 'react'
 import Card from './Card'
+import ScoreBoard from './ScoreBoard'
 
 
 const CardContainer =  () => {
@@ -87,9 +88,7 @@ const CardContainer =  () => {
 
   return (
     <div>
-      <div>
-        <h2>{score}</h2>
-      </div>
+      <ScoreBoard score={score}/>
        {selectComponents()}
     </div>
   )
