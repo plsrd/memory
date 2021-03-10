@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import cardImages from '../images'
 
-const Card = ({ handleScore, imgSrc }) => {
-  const [ selected, setSelected ] = useState(false)
+const Card = ({ handleScore, id}) => {
 
   const handleClick = () => {
-    
-    handleScore(selected)  
+    handleScore(id) 
   }
 
   return (
     <div onClick={handleClick}>
       <img 
-        src={cardImages[imgSrc]}
+        src={cardImages[id]}
         style={{
           width: '200px'
         }}
