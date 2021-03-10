@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
+import cardImages from '../images'
 
-const Card = (props) => {
+const Card = ({ handleScore, imgSrc }) => {
   const [ selected, setSelected ] = useState(false)
-  const { setScore, score, info } = props
 
   const handleClick = () => {
-    if (selected === false){
-      setSelected(true)
-      setScore(score + 1)
-    } 
+    
+    handleScore(selected)  
   }
 
   return (
     <div onClick={handleClick}>
-      <h2>{info.name}</h2>
+      <img 
+        src={cardImages[imgSrc]}
+        style={{
+          width: '200px'
+        }}
+        alt='buttholes'
+       />
     </div>
   )
 }
