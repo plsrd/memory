@@ -45,7 +45,7 @@ const CardContainer =  () => {
   }
 
   const shuffle = () => {
-    let updatedCards = allCards.slice()
+    let updatedCards = [...allCards]
     for (let i = updatedCards.length - 1; i >= 0; i--) {
       const placeholder = updatedCards[i]
       const switchIndex = Math.round(Math.random() * (updatedCards.length - (updatedCards.length  - i)))
@@ -53,40 +53,6 @@ const CardContainer =  () => {
       updatedCards[switchIndex] = placeholder
     }
     setAllCards(updatedCards)
-  }
-
-  const createCardComponents = () => {
-    return (
-      allCards.map(item => 
-        <Card 
-          key={item}
-          handleScore={handleScore}
-          id={item}
-        />
-      )
-    )
-  }
-
-  const selectComponents = () => {
-    if (playMode === 'play') {
-      return (
-        <div className='card-container'>
-          {createCardComponents()}
-        </div>
-      ) 
-    } else if (playMode === 'won') {
-      return (
-        <div>
-          <h2 className='notification'>You have won.</h2>
-        </div>
-      )
-    } else if (playMode === 'lost'){
-      return (
-        <div>
-          <h2 className='notification'>You have lost.</h2>
-        </div>
-      )
-    }
   }
 
   useEffect(() => {
@@ -102,7 +68,19 @@ const CardContainer =  () => {
         <ScoreBoard score={score}/>
       </div>
       <InfoBar />
-       {selectComponents()}
+       {playMode === 'play'
+        ? (
+          <div className='card-container'>
+            {allCards.map(item => (
+              <Card
+                key={item}
+                handleScore={handleScore}
+                id={item}
+              />
+            ))}
+          </div>
+          )
+        : <h2 className='notification'>{playMode === 'won' ? 'You have won.' : 'You have lost.'}</h2>}
     </div>
   )
 }
