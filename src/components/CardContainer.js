@@ -1,11 +1,26 @@
 import React, {  useState, useEffect } from 'react'
 import Card from './Card'
+import ScoreBoard from './ScoreBoard'
+import InfoBar from './InfoBar'
 
 
 const CardContainer =  () => {
   const [score, setScore] = useState(0)
   const [selectedCards, setSelectedCards] = useState([])
-  const [allCards, setAllCards]  = useState(['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'])
+  const [allCards, setAllCards]  = useState([
+    'one', 
+    'two', 
+    'three', 
+    'four', 
+    'five', 
+    'six', 
+    'seven', 
+    'eight', 
+    'nine', 
+    'ten', 
+    'eleven', 
+    'twelve'
+  ])
   const [playMode, setPlayMode] = useState ('play')
 
   const handleScore = (id) => {
@@ -55,25 +70,20 @@ const CardContainer =  () => {
   const selectComponents = () => {
     if (playMode === 'play') {
       return (
-        <div
-          style= {{
-            display: 'flex',
-            flexFlow: 'row wrap'
-          }}
-        >
+        <div className='card-container'>
           {createCardComponents()}
         </div>
       ) 
     } else if (playMode === 'won') {
       return (
         <div>
-          <h2>Winner!!</h2>
+          <h2 className='notification'>You have won.</h2>
         </div>
       )
     } else if (playMode === 'lost'){
       return (
         <div>
-          <h2>Loser!!</h2>
+          <h2 className='notification'>You have lost.</h2>
         </div>
       )
     }
@@ -86,10 +96,12 @@ const CardContainer =  () => {
   }, [playMode])
 
   return (
-    <div>
-      <div>
-        <h2>{score}</h2>
+    <div className='game-container'>
+      <div className='header-container'>
+        <h1 className='header'>BlotMemory</h1>
+        <ScoreBoard score={score}/>
       </div>
+      <InfoBar />
        {selectComponents()}
     </div>
   )
